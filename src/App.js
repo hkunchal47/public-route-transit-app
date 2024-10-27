@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import RouteForm from './components/routeForm/RouteForm';
+import RouteList from './components/routeList/RouteList';
+import MapView from './components/mapView/MapView';
+import useRoutes from './hooks/useRoutes';
 
-function App() {
+const App = () => {
+  const { routes, addRoute, deleteRoute } = useRoutes();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <h1>Public Transit Route</h1>
+      <RouteForm onAddRoute={addRoute} />
+      <RouteList routes={routes} onDeleteRoute={deleteRoute} />
+      {routes.length > 0 ? (
+        <MapView routes={routes} />
+      ) : (
+        <div className="no-routes-message">No routes available to display on the map.</div>
+      )}
     </div>
   );
-}
+};
 
 export default App;

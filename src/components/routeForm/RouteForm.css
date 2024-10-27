@@ -1,0 +1,95 @@
+/* Container for the form */
+form {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+form h3 {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
+  color: #555;
+}
+
+form input[type="text"],
+form input[type="number"],
+form select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form select:focus {
+  border-color: #7f9cff;
+  outline: none;
+  box-shadow: 0 0 8px rgba(127, 156, 255, 0.2);
+}
+
+button[type="button"] {
+  background-color: #4a90e2;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 1rem;
+}
+
+button[type="button"]:hover {
+  background-color: #357ac8;
+}
+
+button[type="button"]:active {
+  background-color: #2c66a5;
+}
+
+button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.StopList,
+.FileUploader {
+  margin-top: 15px;
+}
+
+/* Styling for Add Stop button */
+button[type="button"]#addStopButton {
+  background-color: #28a745;
+}
+
+button[type="button"]#addStopButton:hover {
+  background-color: #218838;
+}
+
+form select[name="status"] {
+  margin-bottom: 20px;
+}
+
+/* Add margin-top for the FileUploader */
+#batchUpload {
+  margin-top: 10px; /* Adjust the value as needed */
+  display: block;
+}
+
+
+
+
