@@ -1,73 +1,113 @@
-# Getting Started with Create React App
+# Public Transit Route Repository
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web application for creating, viewing, editing, and managing public transit routes in emerging markets. This app allows users to manage transit routes with stops, visualize routes on a map, batch upload stops via CSV, and export data. It is designed to support areas with lower digitization by providing a streamlined way to digitize public transit routes.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Create and Delete Routes**: Allows users to create routes with a list of stops.
+- **Stop Management**: Add stops with specific coordinates, view stops in a list
+- **Map Visualization**: View routes as polylines on an interactive map.
+- **Batch Upload **: Upload multiple routes via CSV .
+- **Persistent Data**: Uses browser local storage to save route data.
 
-### `npm start`
+## Technologies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend**: React.js, CSS Modules
+- **Maps API**: Google Maps API
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Setup and Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
+- Node.js and npm installed on your local machine.
+- Google Maps API Key (Sign up at [Google Cloud Console](https://console.cloud.google.com/)).
 
-### `npm run build`
+### Steps
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/public-transit-route-app.git
+   cd public-transit-route-app
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Install dependencies**:
+   ```bash
+   npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Configure Environment Variables**:
+   ```bash
+   REACT_APP_GOOGLE_MAPS_API_KEY=YOUR_GOOGLE_MAPS_API_KEY
 
-### `npm run eject`
+4. **Run the Application**:
+   ```bash
+   npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Creating a Route
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. **Enter Route Details**:
+   - Provide a **Route Name**.
+   - Select **Direction** (UP/DOWN).
+   - Choose **Status** (Active/Inactive).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. **Add Stops**:
+   - Fill in each stop’s **name**, **latitude**, and **longitude**.
+   - Click **Add Stop** to include it in the list of stops for the route.
 
-## Learn More
+3. **Create Route**:
+   - Once all stops are added, click **Create Route** to save the route.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Viewing Routes
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- All saved routes will be displayed on the map, with each route's stops connected by a polyline.
+- Click on a route name in the list to center the map on that route, making it easier to view and explore.
 
-### Code Splitting
+### Batch Upload
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Use the **File Uploader** to import multiple routes from a CSV file.
+- Ensure the CSV file contains columns labeled **Route Name**, **Direction**, **Status**, **Stop Name**, **Latitude**, and **Longitude**.
 
-### Analyzing the Bundle Size
+## Optimizations and Improvements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### SOLID Principles
+To keep the codebase clean and maintainable, the **SOLID principles** can be applied. These design principles encourage single-responsibility classes, modularity, and easily extensible code.
 
-### Making a Progressive Web App
+### State Management with Context
+Currently, state is managed locally in each component. Using **React.Context** or a global state library like **Redux** could simplify data flow, reduce prop drilling, and allow for more complex interactions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Enhanced Search and Filtering
+Adding a search and filter feature for routes and stops would improve the user experience, especially for larger datasets.
 
-### Advanced Configuration
+### Lazy Loading and Pagination
+Implementing lazy loading or pagination for route and stop lists would reduce the initial load time and improve performance with large datasets.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Optimize Map Rendering
+Using marker clustering or reducing details for closely spaced stops can declutter the map, enhancing both visualization and performance.
 
-### Deployment
+### Data Persistence with a Database
+Instead of relying solely on local storage, integrating a backend database like **Firebase** or **MongoDB** would allow access to route data from multiple devices and sessions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### User Authentication
+Adding authentication would enable users to save and manage personal route data, adding data security and customization options.
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Public-Transit-Route
-# Public-Transit-Route-Chalo-Assignent
-# Public-Transit-Route-Chalo-Assignent
+## Project Structure
+
+```plaintext
+public-transit-route-repository/
+├── public/
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── components/
+│   │   ├── RouteForm.js
+│   │   ├── StopList.js
+│   │   ├── FileUploader.js
+│   │   └── MapView.js
+│   ├── utils/
+│   │   └── coordinateValidator.js
+│   ├── App.js
+│   └── index.js
+├── README.md
+└── package.json
+
