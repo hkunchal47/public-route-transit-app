@@ -1,5 +1,5 @@
 {
-  "name": "public-transit-route",
+  "name": "public-transit-route-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
